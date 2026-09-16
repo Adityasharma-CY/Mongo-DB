@@ -1,7 +1,7 @@
 # FACE2 --- MongoDB CRUD Practice Log
 
 **Date:** 15 September 2026\
-**Database:** `PCEA24CY005`\
+**Database:** `PCEA24CY004`\
 **Collection:** `products`\
 **Environment:** MongoDB Atlas + `mongosh`
 
