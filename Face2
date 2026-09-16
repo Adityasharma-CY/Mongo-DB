@@ -1,20 +1,176 @@
-# FACE2 --- MongoDB CRUD Practice Log
+db.students.insertMany([
+    {
+        rollNo: 101,
+        name: "Vasanth",
+        age: 21,
+        department: "CSE",
+        marks: 85,
+        skills: ["Java", "Python", "MongoDB"],
+        address: {
+            city: "Chennai",
+            state: "Tamil Nadu"
+        },
+        scholarship: true
+    },
 
-**Date:** 15 September 2026\
-**Database:** `PCEA24CY004`\
-**Collection:** `products`\
-**Environment:** MongoDB Atlas + `mongosh`
+    {
+        rollNo: 102,
+        name: "Rahul",
+        age: 22,
+        department: "ECE",
+        marks: 72,
+        skills: ["C", "Python", "Arduino"],
+        address: {
+            city: "Bangalore",
+            state: "Karnataka"
+        },
+        scholarship: false
+    },
 
-## 1. Product Data Creation
+    {
+        rollNo: 103,
+        name: "Priya",
+        age: 20,
+        department: "CSE",
+        marks: 91,
+        skills: ["Java", "Python", "AI"],
+        address: {
+            city: "Chennai",
+            state: "Tamil Nadu"
+        },
+        scholarship: true
+    },
 
-Created product documents using a JavaScript `for` loop that inserts 50
-products into `db.products`.
+    {
+        rollNo: 104,
+        name: "Arjun",
+        age: 23,
+        department: "MECH",
+        marks: 68,
+        skills: ["AutoCAD", "C", "Java"],
+        address: {
+            city: "Hyderabad",
+            state: "Telangana"
+        }
+    },
 
-``` javascript
+    {
+        rollNo: 105,
+        name: "Sneha",
+        age: 21,
+        department: "IT",
+        marks: 88,
+        skills: ["Python", "MongoDB", "HTML"],
+        address: {
+            city: "Chennai",
+            state: "Tamil Nadu"
+        },
+        scholarship: true
+    },
+
+    {
+        rollNo: 106,
+        name: "Kiran",
+        age: 24,
+        department: "EEE",
+        marks: 65,
+        skills: ["C", "Arduino", "MATLAB"],
+        address: {
+            city: "Pune",
+            state: "Maharashtra"
+        },
+        scholarship: false
+    },
+
+    {
+        rollNo: 107,
+        name: "Anjali",
+        age: 20,
+        department: "CSE",
+        marks: 95,
+        skills: ["Java", "Python", "AI", "MongoDB"],
+        address: {
+            city: "Bangalore",
+            state: "Karnataka"
+        },
+        scholarship: true
+    },
+
+    {
+        rollNo: 108,
+        name: "Rohit",
+        age: 22,
+        department: "IT",
+        marks: 76,
+        skills: ["JavaScript", "HTML", "CSS"],
+        address: {
+            city: "Hyderabad",
+            state: "Telangana"
+        },
+        scholarship: false
+    },
+
+    {
+        rollNo: 109,
+        name: "Divya",
+        age: 21,
+        department: "CSE",
+        marks: 89,
+        skills: ["Python", "MongoDB", "Java"],
+        address: {
+            city: "Chennai",
+            state: "Tamil Nadu"
+        },
+        scholarship: true
+    },
+
+    {
+        rollNo: 110,
+        name: "Suresh",
+        age: 23,
+        department: "CIVIL",
+        marks: 70,
+        skills: ["AutoCAD", "C", "STAAD"],
+        address: {
+            city: "Vijayawada",
+            state: "Andhra Pradesh"
+        },
+        scholarship: false
+    },
+
+    {
+        rollNo: 111,
+        name: "Meena",
+        age: 22,
+        department: "ECE",
+        marks: 82,
+        skills: ["Python", "Arduino", "IoT"],
+        address: {
+            city: "Bangalore",
+            state: "Karnataka"
+        },
+        scholarship: true
+    },
+
+    {
+        rollNo: 112,
+        name: "Akash",
+        age: 25,
+        department: "CSE",
+        marks: 60,
+        skills: ["C", "Java"],
+        address: {
+            city: "Hyderabad",
+            state: "Telangana"
+        },
+        scholarship: false
+    }
+])
 for (let i = 1; i <= 50; i++) {
+
     db.products.insertOne({
         productId: i,
-        productName: "Product " + i,
+        productName: "Product " + i ,
         category:
             i % 5 === 0 ? "Laptop" :
             i % 5 === 1 ? "Mobile" :
@@ -28,8 +184,11 @@ for (let i = 1; i <= 50; i++) {
                           "HP",
 
         price: 1000 + (i * 500),
+
         stock: 10 + i,
+
         rating: 3 + ((i % 3) * 0.5),
+
         inStock: i % 4 !== 0,
 
         tags: [
@@ -45,366 +204,391 @@ for (let i = 1; i <= 50; i++) {
         createdAt: new Date()
     });
 }
-```
 
-## 2. Updating Product 20 Price
 
-Used `updateMany()` to change the price of all documents having
-`productId: 20`.
 
-``` javascript
-db.products.updateMany(
-    { productId: 20 },
-    { $set: { price: 17000 } }
-)
-```
 
-Result:
+Operators:
+db.students.insertMany([
+    {
+        rollNo: 101,
+        name: "Vasanth",
+        age: 21,
+        department: "CSE",
+        marks: 85,
+        skills: ["Java", "Python", "MongoDB"],
+        address: {
+            city: "Chennai",
+            state: "Tamil Nadu"
+        },
+        scholarship: true
+    },
 
-``` text
-acknowledged: true
-matchedCount: 2
-modifiedCount: 2
-```
+    {
+        rollNo: 102,
+        name: "Rahul",
+        age: 22,
+        department: "ECE",
+        marks: 72,
+        skills: ["C", "Python", "Arduino"],
+        address: {
+            city: "Bangalore",
+            state: "Karnataka"
+        },
+        scholarship: false
+    },
 
-This showed that two documents had `productId: 20`.
+    {
+        rollNo: 103,
+        name: "Priya",
+        age: 20,
+        department: "CSE",
+        marks: 91,
+        skills: ["Java", "Python", "AI"],
+        address: {
+            city: "Chennai",
+            state: "Tamil Nadu"
+        },
+        scholarship: true
+    },
 
-## 3. Updating Product 20 Seller Name
+    {
+        rollNo: 104,
+        name: "Arjun",
+        age: 23,
+        department: "MECH",
+        marks: 68,
+        skills: ["AutoCAD", "C", "Java"],
+        address: {
+            city: "Hyderabad",
+            state: "Telangana"
+        }
+    },
 
-### First attempt --- incorrect
+    {
+        rollNo: 105,
+        name: "Sneha",
+        age: 21,
+        department: "IT",
+        marks: 88,
+        skills: ["Python", "MongoDB", "HTML"],
+        address: {
+            city: "Chennai",
+            state: "Tamil Nadu"
+        },
+        scholarship: true
+    },
 
-``` javascript
-db.products.upadteOne(
-    { productId: 20 },
-    { $set: { "seller,sellername": "Aditya store" } }
-)
-```
+    {
+        rollNo: 106,
+        name: "Kiran",
+        age: 24,
+        department: "EEE",
+        marks: 65,
+        skills: ["C", "Arduino", "MATLAB"],
+        address: {
+            city: "Pune",
+            state: "Maharashtra"
+        },
+        scholarship: false
+    },
 
-Error:
+    {
+        rollNo: 107,
+        name: "Anjali",
+        age: 20,
+        department: "CSE",
+        marks: 95,
+        skills: ["Java", "Python", "AI", "MongoDB"],
+        address: {
+            city: "Bangalore",
+            state: "Karnataka"
+        },
+        scholarship: true
+    },
 
-``` text
-TypeError: db.products.upadteOne is not a function
-```
+    {
+        rollNo: 108,
+        name: "Rohit",
+        age: 22,
+        department: "IT",
+        marks: 76,
+        skills: ["JavaScript", "HTML", "CSS"],
+        address: {
+            city: "Hyderabad",
+            state: "Telangana"
+        },
+        scholarship: false
+    },
 
-Problems: - `upadteOne` was misspelled. Correct spelling is
-`updateOne`. - Nested field syntax was incorrect. A dot (`.`), not a
-comma (`,`), is used between nested field names.
+    {
+        rollNo: 109,
+        name: "Divya",
+        age: 21,
+        department: "CSE",
+        marks: 89,
+        skills: ["Python", "MongoDB", "Java"],
+        address: {
+            city: "Chennai",
+            state: "Tamil Nadu"
+        },
+        scholarship: true
+    },
 
-### Correct command
+    {
+        rollNo: 110,
+        name: "Suresh",
+        age: 23,
+        department: "CIVIL",
+        marks: 70,
+        skills: ["AutoCAD", "C", "STAAD"],
+        address: {
+            city: "Vijayawada",
+            state: "Andhra Pradesh"
+        },
+        scholarship: false
+    },
 
-``` javascript
-db.products.updateOne(
-    { productId: 20 },
-    { $set: { "seller.sellerName": "Aditya Store" } }
-)
-```
+    {
+        rollNo: 111,
+        name: "Meena",
+        age: 22,
+        department: "ECE",
+        marks: 82,
+        skills: ["Python", "Arduino", "IoT"],
+        address: {
+            city: "Bangalore",
+            state: "Karnataka"
+        },
+        scholarship: true
+    },
 
-Result:
-
-``` text
-acknowledged: true
-matchedCount: 1
-modifiedCount: 1
-```
-
-Verification:
-
-``` javascript
-db.products.find({ productId: 20 })
-```
-
-The first Product 20 document now contains:
-
-``` javascript
-seller: {
-    sellerId: 1020,
-    sellerName: "Aditya Store"
-}
-```
-
-The second Product 20 document still contains:
-
-``` javascript
-seller: {
-    sellerId: 1020,
-    sellerName: "Seller 20"
-}
-```
-
-This demonstrates the difference between `updateOne()` and
-`updateMany()`.
-
-## 4. Increasing Product 20 Stock
-
-Used `$inc` to increase the stock of one Product 20 document by 20.
-
-``` javascript
-db.products.updateOne(
-    { productId: 20 },
-    { $inc: { stock: 20 } }
-)
-```
-
-Result:
-
-``` text
-acknowledged: true
-matchedCount: 1
-modifiedCount: 1
-```
-
-The selected Product 20 document changed from:
-
-``` text
-stock: 30
-```
-
-to:
-
-``` text
-stock: 50
-```
-
-## 5. Checking Product 20
-
-Correct command:
-
-``` javascript
-db.products.find({ productId: 20 })
-```
-
-The final visible state included:
-
-``` javascript
-{
-    productId: 20,
-    productName: "Product 20",
-    category: "Laptop",
-    brand: "HP",
-    price: 17000,
-    stock: 50,
-    inStock: false,
-    tags: ["electronics", "featured"],
-    seller: {
-        sellerId: 1020,
-        sellerName: "Aditya Store"
+    {
+        rollNo: 112,
+        name: "Akash",
+        age: 25,
+        department: "CSE",
+        marks: 60,
+        skills: ["C", "Java"],
+        address: {
+            city: "Hyderabad",
+            state: "Telangana"
+        },
+        scholarship: false
     }
-}
-```
-
-A second document with the same `productId: 20` remained with:
-
-``` text
-stock: 30
-sellerName: "Seller 20"
-```
-
-## 6. Removing the Rating Field
-
-### First attempt --- incorrect
-
-``` javascript
-db.products.updateOne(
-    { productId: 20 },
-    { $unset: Prating: "" }
+])
+LOGICAL OPERATORS
+$and       $or      $not       $nor
+1.Find students who belong to the CSE department AND have marks greater than 85.
+db.students.find({
+    $and: [
+        { department: "CSE" },
+        { marks: { $gt: 85 } }
+    ]
 })
-```
+2.Find students who belong to CSE OR IT.
+db.students.find({
+    $or: [
+        { department: "CSE" },
+        { department: "IT" }
+    ]
+})
+3.Find students whose marks are NOT greater than 80.
+db.students.find({
+    marks: {
+        $not: {
+            $gt: 80
+        }
+    }
+})
+4.Find students who are neither from CSE nor from IT.
+db.students.find({
+    $nor: [
+        { department: "CSE" },
+        { department: "IT" }
+    ] })
+COMPARISON OPERATORS : 
+Operator	Meaning	Example
+$eq	Equal To	{marks: {$eq: 80}}
+$gt	Greater Than	{marks: {$gt: 80}}
+$lt	Less Than	{marks: {$lt: 70}}
+$gte	Greater Than or Equal	{marks: {$gte: 85}}
+$lte	Less Than or Equal	{marks: {$lte: 70}}
+$ne	Not Equal	{department: {$ne: "CSE"}}
 
-This produced a syntax error because the `$unset` object was not written
-correctly.
+1.Find students whose department is exactly CSE.
+db.students.find({
+    department: {
+        $eq: "CSE"
+    }
+})
+2.Find students whose marks are greater than 80.
+db.students.find({
+    marks: {
+        $gt: 80
+    }
+})
+3.Find students whose marks are less than 70.
+db.students.find({
+    marks: {
+        $lt: 70
+    }
+})
+4.Find students whose marks are greater than or equal to 85.
+db.students.find({
+    marks: {
+        $gte: 85
+    }
+})
+5.Find students whose marks are less than or equal to 70.
+db.students.find({
+    marks: {
+        $lte: 70
+    }
+})
+6.Find students who are NOT from the CSE department.
+db.students.find({
+    department: {
+        $ne: "CSE"
+    }
+})
 
-### Correct command
+ARRAY OPERATORS
+$in                    $nin                      $all                        $elemMatch            $size
+Operator	Purpose
+$in	Matches any value from a list
+$nin	Matches values not present in a list
+$all	Array must contain all specified values
+$elemMatch	Matches an array element satisfying conditions
+$size	Matches an array of a specific size
 
-``` javascript
-db.products.updateOne(
-    { productId: 20 },
-    { $unset: { rating: "" } }
+1.Find students whose department is either CSE or IT.
+db.students.find({
+    department: {
+        $in: ["CSE", "IT"]
+    }})
+2.Find students whose department is neither CSE nor IT.
+db.students.find({
+    department: {
+        $nin: ["CSE", "IT"]
+    } })
+
+3.Find students who have BOTH Python AND MongoDB skills.
+db.students.find({
+    skills: {
+        $all: ["Python", "MongoDB"]
+    }
+})
+$elemMatch
+This is useful when an array contains objects.
+Let's first add an array of objects to one student:
+db.students.updateOne(
+    { rollNo: 101 },
+    {
+        $set: {
+            subjects: [
+                { name: "Java", marks: 90 },
+                { name: "MongoDB", marks: 88 },
+                { name: "Python", marks: 95 }
+            ]
+        }
+    }
 )
-```
+4.Find students who have a subject named MongoDB with marks greater than 85.
+db.students.find({
+    subjects: {
+        $elemMatch: {
+            name: "MongoDB",
+            marks: { $gt: 85 }
+        }
+    }
+})
+5.Find students who have exactly 3 skills.
+db.students.find({
+    skills: {
+        $size: 3
+    }
+})
 
-Result:
+PROJECTION OPERATORS
+Feature	Purpose
+$project	Select/reshape fields in aggregation
+Include using 1	Display selected fields
+Exclude using 0	Hide selected fields
+$slice	Return part of an array
 
-``` text
-acknowledged: true
-matchedCount: 1
-modifiedCount: 1
-```
-
-The `rating` field was removed from the first matching Product 20
-document.
-
-## 7. Another Incorrect Find Command
-
-Incorrect:
-
-``` javascript
-db.products.find({ productId: 20 })
-```
-
-The attempted command in the session accidentally contained an extra
-closing `}`:
-
-``` javascript
-db.products.find({ productId: 20 }})
-```
-
-This caused:
-
-``` text
-SyntaxError: Unexpected token
-```
-
-Correct command:
-
-``` javascript
-db.products.find({ productId: 20 })
-```
-
-## 8. Incorrect Direct Database Syntax
-
-An incorrect command was also attempted:
-
-``` javascript
-db.productId : 20 })
-```
-
-This is not a valid MongoDB query.
-
-Correct way to search the `products` collection:
-
-``` javascript
-db.products.find({ productId: 20 })
-```
-
-## 9. MongoDB Operators Practiced
-
-### `$set`
-
-Used to create or modify a field.
-
-``` javascript
-db.products.updateOne(
-    { productId: 20 },
-    { $set: { price: 17000 } }
+Projection means:
+Selecting which fields should be displayed in the result.
+1.Display only the student's name, department and marks using $project.
+db.students.aggregate([
+    {
+        $project: {
+            _id: 0,
+            name: 1,
+            department: 1,
+            marks: 1 } } ])
+Include Fields
+2.Display only name and marks.
+db.students.find(
+    {},
+    {
+        _id: 0,
+        name: 1,
+        marks: 1
+    }
 )
-```
-
-### `$inc`
-
-Used to increase or decrease a numeric field.
-
-``` javascript
-db.products.updateOne(
-    { productId: 20 },
-    { $inc: { stock: 20 } }
+Exclude Fields
+Similarly, we exclude fields using 0.
+3.Display all student information except address.
+db.students.find(
+    {},
+    {
+        address: 0
+    }
 )
-```
+$slice
+$slice is used to return only a portion of an array in the result.
+4.Display only the first two skills of every student.
+db.students.find(
+    {},
+    {
+        name: 1,
+        skills: {
+            $slice: 2
+        }
+    })
+Element Operators:
+Operator	Purpose	Example
+$exists	Checks whether a field exists	{scholarship: {$exists: true}}
+$type	Checks BSON data type	{marks: {$type: "int"}}
+$regex	Performs string pattern matching	{name: {$regex: "^A"}}
+ 
+1.Find students whose scholarship field exists.
+db.students.find({
+    scholarship: {
+        $exists: true
+    }
+})
+2.Find students where scholarship does NOT exist:
+db.students.find({
+    scholarship: {
+        $exists: false
+    }
+})
+$type
+$type is used to check the BSON data type of a field.
+3.Find students whose marks field is stored as an integer.
+db.students.find({
+    marks: {
+        $type: "int"
+    }
+})
+$regex
+$regex is used for pattern matching in strings.
+4.Find students whose names start with the letter A.
+db.students.find({
+    name: {
+        $regex: "^A"
+    }
+})
 
-### `$unset`
-
-Used to remove a field.
-
-``` javascript
-db.products.updateOne(
-    { productId: 20 },
-    { $unset: { rating: "" } }
-)
-```
-
-### Nested field update
-
-Used dot notation:
-
-``` javascript
-"seller.sellerName"
-```
-
-Example:
-
-``` javascript
-db.products.updateOne(
-    { productId: 20 },
-    { $set: { "seller.sellerName": "Aditya Store" } }
-)
-```
-
-## 10. Important Lessons Learned
-
-1.  MongoDB method names must be spelled correctly:
-    -   `updateOne()` --- correct
-    -   `upadteOne()` --- incorrect
-2.  Nested fields use dot notation:
-    -   Correct: `"seller.sellerName"`
-    -   Incorrect: `"seller,sellername"`
-3.  `$set` needs a field and a value:
-
-``` javascript
-{ $set: { field: value } }
-```
-
-4.  `$inc` changes numeric values:
-
-``` javascript
-{ $inc: { stock: 20 } }
-```
-
-5.  `$unset` removes a field:
-
-``` javascript
-{ $unset: { rating: "" } }
-```
-
-6.  `updateOne()` updates only the first matching document.
-
-7.  `updateMany()` updates all matching documents.
-
-8.  Always verify an update using `find()` or `findOne()`.
-
-## 11. Useful Verification Commands
-
-Count documents:
-
-``` javascript
-db.products.countDocuments()
-```
-
-Find Product 20:
-
-``` javascript
-db.products.find({ productId: 20 })
-```
-
-Find one Product 20:
-
-``` javascript
-db.products.findOne({ productId: 20 })
-```
-
-Show all products:
-
-``` javascript
-db.products.find()
-```
-
-## 12. Today's Practical Summary
-
-Today's MongoDB practical work covered:
-
--   Creating product documents
--   Working with MongoDB Atlas
--   Using `mongosh`
--   `find()`
--   `findOne()`
--   `updateOne()`
--   `updateMany()`
--   `$set`
--   `$inc`
--   `$unset`
--   Nested document fields
--   Dot notation
--   Checking update results
--   Understanding syntax errors
--   Understanding `matchedCount` and `modifiedCount`
-
-**Project/database:** E-Commerce `products` collection\
-**Practice document:** `FACE2`
